@@ -1,0 +1,12 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /youtube_cache/{document} {
+      allow read: if true;
+      allow write: if false; // Only server should write
+    }
+    match /preferences/{document} {
+      allow read, write: if true; // Simple for now
+    }
+  }
+}

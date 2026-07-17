@@ -1,0 +1,16 @@
+{
+  "collections": {
+    "youtube_cache": {
+      "category": "string",
+      "query": "string",
+      "videos": "array",
+      "updatedAt": "timestamp"
+    },
+    "preferences": {
+      "userId": "string",
+      "uiLanguage": "string",
+      "interests": "string",
+      "updatedAt": "timestamp"
+    }
+  }
+}
