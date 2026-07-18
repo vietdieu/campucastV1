@@ -489,7 +489,10 @@ export function useAssistant({
             ? {
                 ...msg,
                 content: validatedData.speechResponse,
-                suggestedTopics: validatedData.suggestedTopics,
+                suggestedTopics: (validatedData.suggestedTopics || []).map(st => ({
+                  topic: st.topic || "",
+                  reason: st.reason || ""
+                })),
                 timestamp: new Date(),
               }
             : msg

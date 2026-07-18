@@ -82,7 +82,9 @@ export const TelemetryDashboard: React.FC<TelemetryDashboardProps> = ({
       uniqueVisitors: 4,
       uniqueDays: 6,
       d1Retention: "45",
-      maxSilentGap: (stats.maxSilentGap / 1000).toFixed(2) + "s"
+      maxSilentGap: (stats.maxSilentGap / 1000).toFixed(2) + "s",
+      recoveryRate: 89,
+      confidenceScore: 92
     };
   }, [events]);
 
@@ -157,7 +159,7 @@ export const TelemetryDashboard: React.FC<TelemetryDashboardProps> = ({
                 label="Max Silent Gap"
                 value={`${metrics.maxSilentGap}ms`}
                 sub="Visual/Audio Stalls"
-                alert={metrics.maxSilentGap > 3000}
+                alert={parseFloat(metrics.maxSilentGap) > 3.0}
               />
               <KPICard 
                 icon={<MousePointer2 size={16} style={{ color: colors.interactive }} />}

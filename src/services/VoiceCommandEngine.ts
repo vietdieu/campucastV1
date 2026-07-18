@@ -140,10 +140,10 @@ export class VoiceCommandEngine {
 
   // Wake Words definitions
   private readonly wakeWordsVN = [
-    "cast ơi", "cát ơi", "ơi cast", "ơi cát", "này cast", "này cát", "này kết", "kết ơi", "cáp ơi"
+    "hây ơi", "hây", "cast ơi", "cát ơi", "ơi cast", "ơi cát", "này cast", "này cát", "này kết", "kết ơi", "cáp ơi"
   ];
   private readonly wakeWordsEN = [
-    "hey cast", "ok cast", "hey assistant", "hey cash", "hi cast", "cast", "play cast"
+    "hey cast", "ok cast", "hey assistant", "hey cash", "hi cast", "hey", "cast", "play cast"
   ];
 
   // Commands Dictionary with Synonym & Semantic Normalizations
@@ -1169,6 +1169,8 @@ export class VoiceCommandEngine {
 
     const testCases = [
       // Vietnamese Core Command Phrases
+      { input: "hây phát", expectedIntent: "PLAY" },
+      { input: "hây dừng", expectedIntent: "PAUSE" },
       { input: "cast ơi đọc tiếp", expectedIntent: "PLAY" },
       { input: "ơi cát tạm dừng", expectedIntent: "PAUSE" },
       { input: "này kết chuyển bài khác", expectedIntent: "NEXT" },
@@ -1185,6 +1187,8 @@ export class VoiceCommandEngine {
       { input: "ơi cát thoát nghỉ lái xe", expectedIntent: "EXIT" },
 
       // English Core Phrases
+      { input: "hey stop", expectedIntent: "PAUSE" },
+      { input: "hey play", expectedIntent: "PLAY" },
       { input: "hey cast please go next", expectedIntent: "NEXT" },
       { input: "ok cast let me hear the news", expectedIntent: "PLAY" },
       { input: "hi cast go home and exit", expectedIntent: "EXIT" }

@@ -176,7 +176,12 @@ export interface TelemetryEvent {
     | "perception_survey"
     | "mission_created"
     | "mission_updated"
-    | "mission_deleted";
+    | "mission_deleted"
+    | "audio_input_level"
+    | "voice_wake_failure"
+    | "voice_wake_success"
+    | "voice_intent_success"
+    | "voice_intent_failure";
   sessionId: string;
   visitorId: string;
   timestamp: number;

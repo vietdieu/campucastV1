@@ -1,3 +1,16 @@
+## [7.41.3-Stable] - 2026-07-18
+### Changed
+- **Driving HUD Wake Words Customization (`src/hooks/useDrivingMode.ts`, `src/services/VoiceCommandEngine.ts`, `tests/drivingMode.test.tsx`)**:
+  - Updated the Vietnamese voice assistant wake word list in Driving Mode to include `"hây"` / `"hây ơi"` as primary options, matching native Vietnamese pronunciation style (e.g., "Hây phát", "Hây dừng").
+  - Extended English voice assistant wake word list to support `"hey"` and `"hey cast"` universally (e.g., "Hey play", "Hey stop", "Hey next").
+  - Modified UI wake-word guidance error text to recommend calling `"Hây"` (VN) or `"Hey"` (EN) prior to issuing voice commands.
+  - Added full unit test vectors to programmatically verify and protect the updated wake-word matching and stripping behaviors.
+- **Adaptive Sidebar Height Fix (`src/App.tsx`)**:
+  - Removed `mt-12` (margin-top: 48px) from the main `<footer>` layout, eliminating the visual gap ("hở chân") between the bottom of the sidebar navigation menu (which has the "Thu gọn" button) and the footer bar. The elements are now perfectly attached for a continuous, seamless workspace interface.
+- **Home Desk UX Refinement (`src/components/views/HomeTabView.tsx`)**:
+  - Removed duplicate CTA button `"SẢN XUẤT TIN ->"` / `"Produce Briefing"` from the Active Mission card to eliminate redundant functionality and optimize vertical layout.
+  - Updated idle status text in Active Mission card from `"Sẵn Sàng Sản Xuất"` / `"Ready for Production"` to `"Cast trò chuyện"` / `"Chat with Cast"` to accurately communicate the micro voice interaction feature.
+
 ## [7.41.2-Stable] - 2026-07-15
 ### Added
 - **Audio Download API Route (`src/server/routes/podcast.routes.ts`)**:

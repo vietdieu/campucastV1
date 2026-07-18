@@ -1223,7 +1223,7 @@ const handleApplyPreset = (index: number) => {
          )}
        </AnimatePresence>
      </div>
-           <footer className="bg-surface-card border-t border-border-primary py-8 mt-12 text-text-dim">
+           <footer className="bg-surface-card border-t border-border-primary py-8 text-text-dim">
         <div className="max-w-7xl mx-auto px-6 flex flex-wrap justify-between items-center gap-4 text-xs">
           <div className="flex items-center gap-1.5">
             <AudioLines className="w-3.5 h-3.5 text-brand-accent" />

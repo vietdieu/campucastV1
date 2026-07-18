@@ -27,8 +27,8 @@ export interface UseDrivingModeReturn {
 export function matchAndStripWakeWord(text: string, uiLanguage: "vi" | "en"): { matched: boolean; stripped: string } {
   const normalizedText = text.toLowerCase().trim();
   const wakeWords = uiLanguage === "vi" 
-    ? ["cast ơi", "này cast", "ơi cast", "cát ơi", "này cát", "này kết", "kết ơi"]
-    : ["hey cast", "ok cast", "hey assistant", "hey cash", "hi cast", "cast"];
+    ? ["hây ơi", "hây", "cast ơi", "này cast", "ơi cast", "cát ơi", "này cát", "này kết", "kết ơi"]
+    : ["hey cast", "ok cast", "hey assistant", "hey cash", "hi cast", "hey", "cast"];
 
   for (const word of wakeWords) {
     const index = normalizedText.indexOf(word);
@@ -127,7 +127,7 @@ export function useDrivingMode(
     if (wakeWordEnabled) {
       const { matched, stripped } = matchAndStripWakeWord(text, uiLanguage);
       if (!matched) {
-        setCommandFeedback(uiLanguage === "vi" ? "Vui lòng gọi 'Cast ơi' trước câu lệnh" : "Say 'Hey Cast' before your command");
+        setCommandFeedback(uiLanguage === "vi" ? "Vui lòng gọi 'Hây' trước câu lệnh" : "Say 'Hey' before your command");
         // Auto-clear feedback
         if (commandTimeoutRef.current) clearTimeout(commandTimeoutRef.current);
         commandTimeoutRef.current = setTimeout(() => {

@@ -162,19 +162,23 @@ describe("DrivingMode Upgrade Test Suite", () => {
   describe("Hands-free Audio, Speech, and Haptic Feedback Upgrades", () => {
     it("should correctly match and strip wake-word using the matchAndStripWakeWord helper", () => {
       // Vietnamese tests
-      const viResult1 = matchAndStripWakeWord("cast ơi tạm dừng", "vi");
+      const viResult1 = matchAndStripWakeWord("hây tạm dừng", "vi");
       expect(viResult1.matched).toBe(true);
       expect(viResult1.stripped).toBe("tạm dừng");
 
-      const viResult2 = matchAndStripWakeWord("này cast mở bài hát", "vi");
+      const viResult2 = matchAndStripWakeWord("hây ơi mở bài hát", "vi");
       expect(viResult2.matched).toBe(true);
       expect(viResult2.stripped).toBe("mở bài hát");
+
+      const viResult3 = matchAndStripWakeWord("này cast mở bài hát", "vi");
+      expect(viResult3.matched).toBe(true);
+      expect(viResult3.stripped).toBe("mở bài hát");
 
       const viResultNoMatch = matchAndStripWakeWord("bác tài ơi tạm dừng", "vi");
       expect(viResultNoMatch.matched).toBe(false);
 
       // English tests
-      const enResult1 = matchAndStripWakeWord("hey cast play briefing", "en");
+      const enResult1 = matchAndStripWakeWord("hey play briefing", "en");
       expect(enResult1.matched).toBe(true);
       expect(enResult1.stripped).toBe("play briefing");
 

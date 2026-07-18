@@ -72,7 +72,7 @@ export default function HomeTabView({
     vi: {
       deskTitle: "Bàn Điều Hành",
       createCta: "Sản Xuất Bản Tin",
-      missionIdle: "Sẵn Sàng Sản Xuất",
+      missionIdle: "Cast trò chuyện",
       continueMission: "Tiếp Tục Công Việc",
       allOk: "Hoạt động tốt",
       viewAll: "Xem tất cả",
@@ -85,7 +85,7 @@ export default function HomeTabView({
     en: {
       deskTitle: "Operator Desk",
       createCta: "Produce Briefing",
-      missionIdle: "Ready for Production",
+      missionIdle: "Chat with Cast",
       continueMission: "Continue Mission",
       allOk: "Healthy",
       viewAll: "View All",
@@ -195,22 +195,6 @@ export default function HomeTabView({
                           )}
                         </div>
                       </div>
-                    </div>
-
-                    <div className="flex items-center gap-4">
-                      <Button 
-                        onClick={() => setActiveTab("mission_studio")}
-                        className={cn(
-                          "h-12 px-10 font-black uppercase text-xs tracking-widest transition-all rounded-2xl"
-                        )}
-                        style={isProductionActive 
-                          ? { backgroundColor: colors.textPrimary, color: colors.surface } 
-                          : { backgroundColor: colors.surface, color: colors.textMuted, border: `2px solid ${colors.border}` }
-                        }
-                      >
-                        <span>{isProductionActive ? pt.continueMission : pt.createCta}</span>
-                        <ArrowRight className="w-4 h-4 ml-2" />
-                      </Button>
                     </div>
                   </div>
                </Card>
