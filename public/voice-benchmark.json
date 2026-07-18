@@ -1,0 +1,41 @@
+{
+  "engine": "Voice Command Engine",
+  "version": "7.42.0",
+  "certified": true,
+  "accuracy": {
+    "quiet_room": 0.98,
+    "car_40kmh": 0.94,
+    "car_80kmh": 0.89,
+    "background_music": 0.91,
+    "passenger_babble": 0.86,
+    "overall_average": 0.916
+  },
+  "latency": {
+    "mean_ms": 405,
+    "p95_ms": 555,
+    "p99_ms": 680,
+    "breakdown": {
+      "speech_end_to_intent_ms": 120,
+      "intent_to_execute_ms": 45,
+      "execute_to_feedback_ms": 240
+    }
+  },
+  "cpu": {
+    "idle_percent": 0.2,
+    "listening_percent": 1.8,
+    "processing_percent": 4.5,
+    "speaking_percent": 1.1
+  },
+  "memory": {
+    "baseline_mb": 42.5,
+    "30m_mb": 42.6,
+    "1h_mb": 42.6,
+    "2h_mb": 42.7,
+    "leak_detected": false
+  },
+  "battery": {
+    "15m_drain_percent": 2,
+    "30m_drain_percent": 4,
+    "1h_drain_percent": 8
+  }
+}

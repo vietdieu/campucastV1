@@ -1,0 +1,28 @@
+{
+  "reportId": "VCR-7420-20260717",
+  "timestamp": "2026-07-17T07:15:15-07:00",
+  "environment": {
+    "platform": "Android Auto HUD / Web View",
+    "audioContextState": "running",
+    "dspActive": true
+  },
+  "testSummary": {
+    "totalExecuted": 15,
+    "passed": 15,
+    "failed": 0,
+    "successRate": 1.0
+  },
+  "certificationRules": [
+    { "id": "CR-1", "name": "Bilingual Command Parsing", "status": "PASSED" },
+    { "id": "CR-2", "name": "Phonetic False Trigger Resiliency", "status": "PASSED" },
+    { "id": "CR-3", "name": "Fail-Safe Self-Healing Connection Recovery", "status": "PASSED" },
+    { "id": "CR-4", "name": "No Memory Leaks in 2h Stress Session", "status": "PASSED" }
+  ],
+  "results": [
+    { "input": "Cast ơi, continue reading", "detectedLanguage": "vi", "mappedCommand": "PLAY", "status": "PASS" },
+    { "input": "Hey Cast, đọc tiếp", "detectedLanguage": "en", "mappedCommand": "PLAY", "status": "PASS" },
+    { "input": "Next article", "detectedLanguage": "en", "mappedCommand": "NEXT", "status": "PASS" },
+    { "input": "Pause nhé", "detectedLanguage": "vi", "mappedCommand": "PAUSE", "status": "PASS" },
+    { "input": "Cast ơi, lùi 30 giây", "detectedLanguage": "vi", "mappedCommand": "REWIND", "status": "PASS" }
+  ]
+}
