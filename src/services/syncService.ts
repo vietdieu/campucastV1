@@ -159,7 +159,16 @@ export async function uploadAudioToSupabaseStorage(
 
     if (error) {
       // Nếu bucket chưa tồn tại, thử tạo bucket mới và upload lại
-      if (error.message?.includes("bucket") || (error as any).status === 404) {
+      const errMsg = error.message?.toLowerCase() || "";
+      const isBucketMissing = 
+        errMsg.includes("bucket") || 
+        errMsg.includes("not found") || 
+        (error as any).status === 404 || 
+        (error as any).status === 400 ||
+        (error as any).statusCode === 404 ||
+        (error as any).statusCode === 400;
+
+      if (isBucketMissing) {
         console.warn(`[Storage] Bucket '${bucketName}' does not exist. Initializing...`);
         try {
           await supabase.storage.createBucket(bucketName, { public: true });
