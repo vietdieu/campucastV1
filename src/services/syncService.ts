@@ -147,7 +147,7 @@ export async function uploadAudioToSupabaseStorage(
     const blobs = audioChunks.map(chunk => base64ToBlob(chunk));
     const combinedBlob = new Blob(blobs, { type: "audio/mpeg" });
     const fileName = `${userId}/${briefingId}.mp3`;
-    const bucketName = "audio-briefings";
+    const bucketName = "podcast-audio";
 
     // Thực hiện tải lên
     let { error } = await supabase.storage

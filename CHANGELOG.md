@@ -1,5 +1,9 @@
 ## [7.41.3-Stable] - 2026-07-18
 ### Changed
+- **Supabase Audio Storage Configuration Fix (`src/services/syncService.ts`)**:
+  - Fixed the hardcoded `audio-briefings` bucket name used for uploading audio to Supabase.
+  - Aligned with the correct provisioned bucket `podcast-audio` as verified by the user's Supabase dashboard environment.
+  - This solves the `StorageApiError: Bucket not found` runtime issue (HTTP 400) when clicking "Export" on generated audio files.
 - **Supabase Audio Storage Auto-Creation Fix (`src/services/syncService.ts`)**:
   - Solved the `StorageApiError: Bucket not found` runtime issue when clicking "Export" on Vietnamese voice briefings.
   - Fixed case-sensitive check error where `"Bucket not found"` didn't match lowercase `includes("bucket")`.
