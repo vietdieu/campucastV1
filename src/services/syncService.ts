@@ -147,7 +147,7 @@ export async function uploadAudioToSupabaseStorage(
     const blobs = audioChunks.map(chunk => base64ToBlob(chunk));
     const combinedBlob = new Blob(blobs, { type: "audio/mpeg" });
     const fileName = `${userId}/${briefingId}.mp3`;
-    const bucketName = "podcast-audio";
+    const bucketName = "audio-briefings";
 
     // Thực hiện tải lên
     let { error } = await supabase.storage
@@ -161,12 +161,9 @@ export async function uploadAudioToSupabaseStorage(
       // Nếu bucket chưa tồn tại, thử tạo bucket mới và upload lại
       const errMsg = error.message?.toLowerCase() || "";
       const isBucketMissing = 
-        errMsg.includes("bucket") || 
-        errMsg.includes("not found") || 
+        errMsg.includes("bucket not found") || 
         (error as any).status === 404 || 
-        (error as any).status === 400 ||
-        (error as any).statusCode === 404 ||
-        (error as any).statusCode === 400;
+        (error as any).statusCode === 404;
 
       if (isBucketMissing) {
         console.warn(`[Storage] Bucket '${bucketName}' does not exist. Initializing...`);

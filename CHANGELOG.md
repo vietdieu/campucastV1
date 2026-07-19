@@ -1,13 +1,9 @@
 ## [7.41.3-Stable] - 2026-07-18
 ### Changed
+- **Supabase Storage Error Handling Fix (`src/services/syncService.ts`)**:
+  - Prevented the app from incorrectly attempting to run `createBucket` when receiving a `400` RLS (Row-Level Security) error during audio upload. The check now strictly looks for a `404` status or a clear `"bucket not found"` message.
 - **Supabase Audio Storage Configuration Fix (`src/services/syncService.ts`)**:
-  - Fixed the hardcoded `audio-briefings` bucket name used for uploading audio to Supabase.
-  - Aligned with the correct provisioned bucket `podcast-audio` as verified by the user's Supabase dashboard environment.
-  - This solves the `StorageApiError: Bucket not found` runtime issue (HTTP 400) when clicking "Export" on generated audio files.
-- **Supabase Audio Storage Auto-Creation Fix (`src/services/syncService.ts`)**:
-  - Solved the `StorageApiError: Bucket not found` runtime issue when clicking "Export" on Vietnamese voice briefings.
-  - Fixed case-sensitive check error where `"Bucket not found"` didn't match lowercase `includes("bucket")`.
-  - Upgraded bucket missing detection to support case-insensitive checks, "not found" sub-strings, and HTTP 400/404 statuses for failsafe automatic bucket provisioning.
+  - Reverted the bucket name to `audio-briefings` based on the user's Supabase dashboard environment.
 - **Driving HUD Wake Words Customization (`src/hooks/useDrivingMode.ts`, `src/services/VoiceCommandEngine.ts`, `tests/drivingMode.test.tsx`)**:
   - Updated the Vietnamese voice assistant wake word list in Driving Mode to include `"hây"` / `"hây ơi"` as primary options, matching native Vietnamese pronunciation style (e.g., "Hây phát", "Hây dừng").
   - Extended English voice assistant wake word list to support `"hey"` and `"hey cast"` universally (e.g., "Hey play", "Hey stop", "Hey next").
